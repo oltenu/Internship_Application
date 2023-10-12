@@ -49,7 +49,7 @@ public class ApplicantConverter {
         applicant.setAddressLine2(applicantDto.getAddressLine2());
         applicant.setJobListing(jobListingRepository.findById(applicantDto.getJobListingId()).orElseThrow(()
                 -> new ApplicantException("No job listing found!")));
-        applicant.setEmployer(employerRepository.findById(applicant.getJobListing().getId()).orElseThrow(()
+        applicant.setEmployer(employerRepository.findById(applicant.getJobListing().getEmployer().getId()).orElseThrow(()
                 -> new EmployerException("No employer found!")));
 
         return applicant;
