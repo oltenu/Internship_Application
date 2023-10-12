@@ -1,4 +1,11 @@
 package com.example.internship_application.repository;
 
-public class JobListingRepository {
+import com.example.internship_application.model.entity.Employer;
+import com.example.internship_application.model.entity.JobListing;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
+
+public interface JobListingRepository extends CrudRepository<JobListing, Long> {
+    List<JobListing> findAllByEmployerId(Long id);
 }
