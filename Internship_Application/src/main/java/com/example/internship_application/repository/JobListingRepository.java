@@ -1,6 +1,5 @@
 package com.example.internship_application.repository;
 
-import com.example.internship_application.model.entity.Employer;
 import com.example.internship_application.model.entity.JobListing;
 import org.springframework.data.repository.CrudRepository;
 

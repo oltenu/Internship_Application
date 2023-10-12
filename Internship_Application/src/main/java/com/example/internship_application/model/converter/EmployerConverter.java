@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EmployerConverter {
-    public static EmployerDto fromModelToDto(Employer employer){
+    public static EmployerDto fromModelToDto(Employer employer) {
         EmployerDto employerDto = new EmployerDto();
 
         employerDto.setPhoneNumber(employer.getPhoneNumber());
@@ -18,7 +18,7 @@ public class EmployerConverter {
         return employerDto;
     }
 
-    public static Employer fromDtoToModel(EmployerDto employerDto){
+    public static Employer fromDtoToModel(EmployerDto employerDto) {
         Employer employer = new Employer();
 
         employer.setAddress(employerDto.getAddress());

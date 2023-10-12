@@ -1,6 +1,5 @@
 package com.example.internship_application.service;
 
-import com.example.internship_application.helpers.EmployerException;
 import com.example.internship_application.helpers.JobListingException;
 import com.example.internship_application.model.converter.JobListingConverter;
 import com.example.internship_application.model.dto.JobListingDto;
@@ -21,7 +20,7 @@ public class JobListingService {
         this.applicantService = applicantService;
     }
 
-    public JobListing addJobListing(JobListingDto jobListingDto) throws JobListingException, EmployerException {
+    public JobListing addJobListing(JobListingDto jobListingDto) throws JobListingException {
         if (jobListingDto.getTitle() == null) {
             throw new JobListingException("A job listing should have a title!");
         } else if (jobListingDto.getEmploymentType() == null) {
@@ -35,15 +34,13 @@ public class JobListingService {
         return jobListing;
     }
 
-    public JobListing getJobListing(Long id) throws JobListingException {
-        return jobListingRepository.findById(id).orElseThrow(() -> new JobListingException("No job listing found!"));
-    }
-
     public List<JobListing> getJobListingsByEmployer(Long id) {
         return jobListingRepository.findAllByEmployerId(id);
     }
 
     public void deleteJobListing(Long id) {
+        List<Applicant> applicants = applicantService.getApplicantsByJobListing(id);
+        applicantService.deleteAll(applicants);
         jobListingRepository.deleteById(id);
     }
 }

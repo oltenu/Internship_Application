@@ -1,6 +1,5 @@
 package com.example.internship_application.model.dto;
 
-import com.example.internship_application.model.entity.Employer;
 import lombok.Data;
 
 @Data

@@ -23,10 +23,10 @@ public class Applicant {
     private String country;
     private String state;
     private String city;
-    @OneToOne
-    @JoinColumn(name="job_listing_id")
+    @JoinColumn(name = "job_listing_id")
+    @ManyToOne
     private JobListing jobListing;
-    @OneToOne
-    @JoinColumn(name="employer_id")
+    @ManyToOne
+    @JoinColumn(name = "employer_id")
     private Employer employer;
 }

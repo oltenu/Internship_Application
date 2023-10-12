@@ -1,7 +1,6 @@
 package com.example.internship_application.controller;
 
-import com.example.internship_application.helpers.EmployerException;
-import com.example.internship_application.helpers.JobListingException;
+import com.example.internship_application.helpers.*;
 import com.example.internship_application.model.dto.JobListingDto;
 import com.example.internship_application.model.entity.JobListing;
 import com.example.internship_application.service.JobListingService;
@@ -14,12 +13,12 @@ import java.util.List;
 public class JobListingController {
     private final JobListingService jobListingService;
 
-    public JobListingController(JobListingService jobListingService){
-            this.jobListingService = jobListingService;
+    public JobListingController(JobListingService jobListingService) {
+        this.jobListingService = jobListingService;
     }
 
     @GetMapping("/{id}")
-    public List<JobListing> displayJobListingsByEmployer(@PathVariable Long id){
+    public List<JobListing> displayJobListingsByEmployer(@PathVariable Long id) {
         return jobListingService.getJobListingsByEmployer(id);
     }
 
